@@ -15,6 +15,6 @@
     <modules>
         <module>class-dedup-plugin</module>
         <module>use-plugin</module>
-        <module>use-plugin-utm</module>
+        <module>use-plugin-umg</module>
     </modules>
 </project>
