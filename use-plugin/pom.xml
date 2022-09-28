@@ -17,11 +17,6 @@
         <artifactId>kubernetes-client</artifactId>
         <version>6.1.1</version>
       </dependency>
-      <!-- <dependency>
-        <groupId>io.fabric8</groupId>
-        <artifactId>generator-annotations</artifactId>
-        <version>6.1.1</version>
-      </dependency> -->
       <dependency>
         <groupId>javax.validation</groupId>
         <artifactId>validation-api</artifactId>
@@ -33,37 +28,29 @@
     <build>
         <plugins>
 
-          <plugin>
-            <groupId>io.fabric8</groupId>
-            <artifactId>java-generator-maven-plugin</artifactId>
-            <version>6.1.1</version>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>generate</goal>
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-              <source>spark.yaml</source>
-            </configuration>
-          </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>java-generator-maven-plugin</artifactId>
+                <version>6.1.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <source>spark.yaml</source>
+                </configuration>
+            </plugin>
           
-
-            <!-- Execute the sample plugin -->
             <plugin>
                 <groupId>io.apicurio</groupId>
                 <artifactId>class-dedup-plugin</artifactId>
                 <version>1.0-SNAPSHOT</version>
                 <executions>
                     <execution>
-                        <configuration>
-                            <!-- We want this code to get the trace lines: -->
-                            <!-- <sourceDirectory>${project.basedir}/src/main/template</sourceDirectory> -->
-                            <!-- The destinationDirectory has a default that's just fine -->
-                        </configuration>
                         <goals>
-                            <!-- The goal finds the name in the @Mojo annotation on TraceCodePluginMojo -->
                             <goal>class-dedup</goal>
                         </goals>
                     </execution>
